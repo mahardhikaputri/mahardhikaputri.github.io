@@ -1,0 +1,122 @@
+---
+title: "Pengaruh Nilai Impor dan Ekspor Susu Sapi di Indonesia"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Mahardhika Putri Maharani"
+date: 2024-01-12
+number-sections: true
+format:
+  html: default
+  docx: default
+---
+![logo APP](poltekapp.jpg)
+
+## Pendahuluan
+
+### Latar belakang
+
+Meskipun industri susu Indonesia terus berkembang, kontribusinya terhadap produksi susu global masih kecil. Impor dan ekspor susu Indonesia dipengaruhi oleh banyak faktor, antara lain konsumsi dalam negeri, aktivitas daerah, kebijakan pemerintah, dan perkembangan industri.Terkait impor susu, Indonesia biasanya mengimpor susu untuk memenuhi kebutuhan dalam negeri. Negara ini mengimpor berbagai jenis susu, termasuk susu bubuk, susu kental manis, dan produk susu lainnya. Susu dapat diimpor dari berbagai negara seperti Selandia Baru, Australia, Amerika Serikat dan banyak negara lainnya.Beberapa alasan Indonesia mengimpor susu adalah karena tingginya permintaan pasar, namun produksi dalam negeri tidak cukup untuk memenuhi permintaan tersebut. 
+
+Kebijakan impor susu dapat berbeda-beda tergantung permintaan pasar dan kondisi produksi nasional.Saat itu untuk ekspor susu, produksi susu Indonesia masih lebih rendah dibandingkan kebutuhan dalam negeri. Oleh karena itu, produk susu Indonesia secara umum tidak sebaik produk impor. Pemerintah Indonesia akan fokus terlebih dahulu pada pemenuhan kebutuhan dalam negeri sebelum mempertimbangkan ekspor.Namun berkat peningkatan produksi dalam negeri dan peningkatan kualitas susu, Indonesia akan mampu memperluas produksi susunya ke pasar internasional. Beberapa produk yang dapat diekspor antara lain susu segar, susu bubuk dan produk susu lainnya.Penting untuk diingat bahwa kondisi impor dan ekspor dapat berubah seiring berjalannya waktu dan bergantung pada banyak faktor, termasuk kebijakan pemerintah, kondisi perekonomian, dan permintaan pasar. . Selain itu, data baru ini dapat memberikan informasi tambahan mengenai tren impor dan ekspor susu Indonesia.
+
+### Ruang lingkup
+
+Ruang Lingkup mengenai subjek bergantung pada variabel yang digunakan dalam analisis ini, yaitu perngaruh nilai ekspor dan impor susu sapi di Indonesia. Batasan masalah ini membantu mendefinisikan masalah yang ingin diatasi dan mempersempit ruang lingkup proses yang sedang dibahas.
+
+### Rumusan masalah
+
+1. Bagaimana pengaruh nilai Impor dan Ekspor susu sapi di Indonesia?
+2. Apakah Jumlah nilai Impor berpengaruh pada nilai Ekspor susu sapi di Indonesia?
+
+### Tujuan dan manfaat penelitian
+
+Tujuan penelitian ini untuk mengetahui pengaruh nilai impor terhadap ekspor susu sapi di Indonesia.
+
+Manfaat penelitian ini agar masyarakat mengetahui bahwa adanya pengaruh Jumlah nilai Impor dan Ekspor susu sapi di Indonesia.
+
+### Package
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+```
+
+## Studi pustaka
+
+Menurut Awang, A. R. M. (2021), terkait Analisa Ketidakseimbangan Impor Susu dan Ekspor Susu Nasional di Indonesia Tahun 2017-2020 Berdasarkan Teori Ekonomi Liberal (Doctoral dissertation),  Industri-Industri ini lebih 
+menyukai impor susu dari luar negeri, terutama industri besar yang cenderung mengandalkan 
+impor dari pada membangun susu lokal milik peternak. Beberapa perusahan bahan susu utama 
+berasal dari impor susu dan beberapa perusahan ada yang menyerap susu lokal namun jumlah 
+impor lebih tinggi sebesar 78%. Hal ini memang adalah hal yang tidak dapat dihindarkan, karena 
+yang di cari adalah sebuah kualitas yang baik untuk di konsumsi masyarakat. Sedangkan kualitas 
+produksi susu peternak masih rendah. Kualitas yang di cari oleh industri besar, karena susu yang 
+dikelolah bukan hanya untuk memenuhi kebutuhan nasional namun juga untuk di ekspor dilintas 
+negara lain.
+
+## Metode penelitian
+
+### Data
+
+: Nilai Impor dan Ekspor susu sapi di Indonesia
+
+| Tahun | Impor | Ekspor |
+|-------|-------|--------|
+| 2018  | 15066 |  8343  |
+| 2019  | 13628 |  6780  |    
+| 2020  | 11305 |  9246  |    
+| 2021  | 14150 |  9820  |
+| 2022  | 17421 |  9230  |
+
+Penelitian ini menggunakan data nilai impor dan ekspor susu sapi di Indonesia
+
+```{r}
+#import dataset
+library(readxl)
+dat<-read_excel('Data UAS.xlsx')
+head(dat)
+ggplot(data=dat,aes(x=X,y=Y)) +
+  geom_point()
+```
+### Metode analisis
+
+Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini merbaksud mencari hubungan antara X dan Y. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ di mana $y_t$ adalah Nilai impor susu sapi dan $x_t$ adalah Nilai ekspor susu sapi.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+```{r}
+library(readxl)
+dat<-read_excel('Data UAS.xlsx')
+head(dat)
+```
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+reg<-lm(X~Y,data=dat)
+summary(reg)
+```
+## Kesimpulan
+
+Bagaimana pengaruhnya terhadap nilai impor/ekspor susu ke Indonesia?
+Koefisien variabel Y (nilai ekspor) pada model regresi linier sebesar 0,154 (keputusan). Namun nilai p untuk koefisien Y sebesar 0,895 lebih besar dari tingkat signifikansi yang digunakan (0,05). Oleh karena itu, belum cukup bukti yang menyatakan bahwa nilai ekspor berpengaruh signifikan terhadap nilai impor.
+
+Apakah total impor akan mempengaruhi ekspor susu ke India?
+Dari koefisien yang dihasilkan diperkirakan setiap kenaikan satu satuan nilai impor (indeks Y), maka nilai ekspor (indeks X) meningkat sebesar 0,154. Namun karena nilai p-value yang tinggi (0,895), maka tidak dapat disimpulkan bahwa hubungan tersebut signifikan secara statistik. Hal ini menunjukkan bahwa total impor tidak memberikan pengaruh yang signifikan terhadap ekspor susu ke Indonesia
+
+## Referensi
+
+Awang, A. R. M. (2021). Analisa Ketidakseimbangan Impor Susu dan Ekspor Susu Nasional di Indonesia Tahun 2017-2020 Berdasarkan Teori Ekonomi Liberal (Doctoral dissertation) https://repository.uksw.edu/handle/123456789/22050
+
+Amaliah, S., & Fahmi, I. (2007). Faktor-faktor yang mempengaruhi impor susu Indonesia. Jurnal Manajemen & Agribisnis, 4(2), 91-102.
+https://journal.ipb.ac.id/index.php/jmagr/article/view/3326
+
+TradeMap.Retrieved January 5, 2023, from https://www.trademap.org/Country_SelProductCountry_TS.aspx?nvpm=1%7c360%7c%7c%7c%7c0401%7c%7c%7c4%7c1%7c1%7c1%7c2%7c1%7c2%7c1%7c1%7c1
